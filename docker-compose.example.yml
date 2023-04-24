@@ -1,0 +1,24 @@
+version: '2'
+
+# networks:
+#   app-tier:
+#     driver: bridge
+
+services:
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    port: 5432
+    volumes:
+      - /path/to/postgresql-persistence:/bitnami/postgresql
+    environment:
+      - POSTGRESQL_POSTGRES_PASSWORD=add-root-dba-password
+      - POSTGRESQL_USERNAME=create-username
+      - POSTGRESQL_PASSWORD=add-user-password
+      - POSTGRESQL_DATABASE=db-name
+    
+  #   networks:
+  #     - app-tier
+  # myapp:
+  #   image: 'YOUR_APPLICATION_IMAGE'
+  #   networks:
+  #     - app-tier
